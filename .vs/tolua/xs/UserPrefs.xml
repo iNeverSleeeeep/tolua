@@ -1,0 +1,43 @@
+﻿<Properties StartupConfiguration="{19B870AE-74D8-ED4E-AC18-C42B2766C951}|单元测试">
+  <MonoDevelop.Ide.Workbench>
+    <Files>
+      <File FileName="Assets/ToLua/Misc/LuaHotLoader.cs" Line="71" Column="69" />
+      <File FileName="Assets/ToLua/Examples/TestHotReload/TestHotReload.cs" Line="126" Column="25" />
+      <File FileName="Assets/Source/Generate/UnityEngine_ApplicationWrap.cs" />
+      <File FileName="Assets/Source/Generate/LuaBinder.cs" />
+      <File FileName="Assets/ToLua/Misc/LuaClient.cs" Line="123" Column="71" />
+      <File FileName="Assets/ToLua/Examples/10_Enum/AccessingEnum.cs" />
+      <File FileName="Assets/ToLua/Core/LuaDLL.cs" Line="242" Column="47" />
+      <File FileName="Assets/ToLua/Core/LuaState.cs" Line="1" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="tolua" expanded="True">
+            <Node name="Assembly-CSharp" expanded="True">
+              <Node name="Assets" expanded="True">
+                <Node name="ToLua" expanded="True">
+                  <Node name="Core" expanded="True" />
+                  <Node name="Examples" expanded="True">
+                    <Node name="TestHotReload" expanded="True" />
+                  </Node>
+                  <Node name="Misc" expanded="True">
+                    <Node name="LuaHotLoader.cs" selected="True" />
+                  </Node>
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp-Editor PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c0f0d42a-cd31-4dc6-9578-28a9e7d939d0" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
