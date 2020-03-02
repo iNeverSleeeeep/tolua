@@ -47,8 +47,8 @@ function Class:Init()
     end)
 end
 ```
+需要改成下面这种写法
 ```lua
--- 需要改成下面这种写法
 function Class:NewInit()
     EventManager.ListenEvent("EVENT_NAME", Bind(self.EventHandler, self))
 end
