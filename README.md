@@ -24,7 +24,7 @@ end
 - 类中的数据会丢失
 - 绑定到其他lua或c#中的回调函数没有办法使用新的逻辑。
 
-我在tolua_runtime库中新增加了一个 *hot.swaplfunc()* 方法，可以切换lua函数指向的函数指针，而在tolua工程的LuaHotReload类中增加了检测lua文件变更的代码。lua文件变更时，会自动加载新的lua逻辑，然后将新的function原型(*proto*)绑定到旧的table function中，这样就实现了一个比较易用的逻辑热加载逻辑。
+我在tolua_runtime库中新增加了一个 *hot.swaplfunc()* 方法，可以切换lua函数指向的函数原型(proto)指针，而在tolua工程的LuaHotReload类中增加了检测lua文件变更的代码。lua文件变更时，会自动加载新的lua逻辑，然后将新的function原型(*proto*)绑定到旧的table function中，这样就实现了一个比较易用的逻辑热加载逻辑。
 对于类似LocalClass的写法，不需要做任何更改，对于类似GlobalClass.lua的代码，需要做如下修改
 ```lua
 -- file GlobalClass.lua
