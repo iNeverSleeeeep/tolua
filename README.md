@@ -49,7 +49,7 @@ end
 ```
 需要改成下面这种写法
 ```lua
-function Class:NewInit()
+function Class:Init()
     EventManager.ListenEvent("EVENT_NAME", Bind(self.EventHandler, self))
 end
 function Class:EventHandler()
