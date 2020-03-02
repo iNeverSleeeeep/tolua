@@ -4,7 +4,7 @@
 - [逻辑热加载](#逻辑热加载) 
 
 # 逻辑热加载
-通过重新指定lua函数proto的方式实现逻辑代码的热加载，不重启游戏即可修改逻辑(*function*)并保留数据以及各种函数的绑定。
+通过重新指定lua函数proto的方式实现逻辑代码的热加载，不重启游戏即可修改逻辑( *function* )并保留数据以及各种函数的绑定。
 通常在游戏开发中我们的逻辑为
 ```lua
 -- file LocalClass.lua
@@ -19,7 +19,7 @@ GlobalClass = {}
 function GlobalClass:Hello()
 end
 ```
-通常的逻辑热加载方式是*require(path)*后调用*package.loaded[path] = nil*之后再执行*require(path)*的地方会加载新的逻辑。
+通常的逻辑热加载方式是 *require(path)* 后调用 *package.loaded[path] = nil* 之后再执行 *require(path)* 的地方会加载新的逻辑。
 这种实现方式如果规划不好的话会有两个问题：
 - 类中的数据会丢失
 - 绑定到其他lua或c#中的回调函数没有办法使用新的逻辑。
