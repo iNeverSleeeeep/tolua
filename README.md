@@ -46,6 +46,8 @@ function Class:Init()
         -- 处理的逻辑代码
     end)
 end
+```
+```lua
 -- 需要改成下面这种写法
 function Class:NewInit()
     EventManager.ListenEvent("EVENT_NAME", Bind(self.EventHandler, self))
