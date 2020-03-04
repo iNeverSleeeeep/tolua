@@ -57,5 +57,5 @@ static void gc_traverse_func(global_State *g, GCfunc *fn)
   }
 }
 ```
-通过上面的代码，我们可以确定，function gc的过程是动态查找关联proto和env的过程，而在gc链条里而没有被调用mark的gcobj，会被最终清除。
+通过上面的代码，我们可以确定，function gc的过程是动态查找关联proto和env的过程。在global_State的gc列表里而没有被调用mark的gcobj，最终会被清除。
 根据以上，推断运行时替换function的proto不会产生内存泄漏问题。
