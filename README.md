@@ -35,7 +35,7 @@ return 'GlobalClass' -- 这里是需要新加的代码。
 ```
 
 目前存在的问题：
-- **只在开发中提高工作效率用** 通过读luajit和lua的源码，我认为不会产生GC相关的问题，但是保守起见，最好只在开发中使用。
+- **只在开发中提高工作效率用** 通过读luajit和lua的源码，我认为[不会产生GC相关的问题](#不会产生GC相关的问题)，但是保守起见，最好只在开发中使用。
 - 没有经过丰富的测试，这个我只写了一些简单的测试用例（见TestHotReload）。
 - 不支持局部函数的热加载
 
@@ -66,3 +66,24 @@ end
 
 要看实现方法的话，具体看一下github.com/iNeverSleeeeep/tolua_runtime的 *lua_hot.c* 和本项目中的LuaHotLoader类。
 
+##### 不会产生GC相关的问题
+分别根据luajit和lua的代码来说明：
+```c
+// luajit
+
+static GCfunc *func_newL(lua_State *L, GCproto *pt, GCtab *env)
+{
+  uint32_t count;
+  GCfunc *fn = (GCfunc *)lj_mem_newgco(L, sizeLfunc((MSize)pt->sizeuv));
+  fn->l.gct = ~LJ_TFUNC;
+  fn->l.ffid = FF_LUA;
+  fn->l.nupvalues = 0;  /* Set to zero until upvalues are initialized. */
+  /* NOBARRIER: Really a setgcref. But the GCfunc is new (marked white). */
+  setmref(fn->l.pc, proto_bc(pt));
+  setgcref(fn->l.env, obj2gco(env));
+  /* Saturating 3 bit counter (0..7) for created closures. */
+  count = (uint32_t)pt->flags + PROTO_CLCOUNT;
+  pt->flags = (uint8_t)(count - ((count >> PROTO_CLC_BITS) & PROTO_CLCOUNT));
+  return fn;
+}
+```c
