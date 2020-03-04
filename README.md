@@ -35,7 +35,7 @@ return 'GlobalClass' -- 这里是需要新加的代码。
 ```
 
 目前存在的问题：
-- **只在开发中提高工作效率用** 通过读luajit和lua的源码，我认为不会产生GC相关的问题( 见[luajit lua function gc.md](doc/luajit lua function gc.md)和[lua lua function gc.md](doc/lua lua function gc.md) )，但是保守起见，最好只在开发中使用。
+- **只在开发中提高工作效率用** 通过读luajit和lua的源码，我认为不会产生GC相关的问题（见[luajit lua function gc.md](doc/luajit lua function gc.md)和[lua lua function gc.md](doc/lua lua function gc.md)），但是保守起见，最好只在开发中使用。
 - 没有经过丰富的测试，这个我只写了一些简单的测试用例（见TestHotReload）。
 - 不支持局部函数的热加载
 
